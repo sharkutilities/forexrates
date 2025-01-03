@@ -9,7 +9,7 @@ https://exchangeratesapi.io/documentation/.
 """
 
 import datetime as dt
-
+from typing import Iterable
 from forexrates.api.base import BaseAPI
 
 class ExchangeRatesAPI(BaseAPI):
@@ -54,6 +54,5 @@ class ExchangeRatesAPI(BaseAPI):
         pass
 
 
-    def get(self, **kwargs) -> dict:
-        # returns json data by default, todo parsing modules
-        return super().get(**kwargs).json()
+    def get(self, parsewith : callable = None, **kwargs) -> Iterable:
+        return super().get(parsewith = parsewith, **kwargs)

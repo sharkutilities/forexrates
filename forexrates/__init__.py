@@ -12,4 +12,5 @@ to fetch foreign exchange rates.
 __version__ = "v0.0.1.dev0"
 
 # init-time options registrations
+from forexrates import io
 from forexrates import api

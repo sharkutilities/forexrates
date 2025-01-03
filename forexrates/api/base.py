@@ -10,6 +10,7 @@ data sources with abstract class methods and properties.
 import time
 import requests
 
+from typing import Iterable
 from abc import ABC, abstractmethod
 
 class BaseAPI(ABC):
@@ -83,8 +84,12 @@ class BaseAPI(ABC):
                 continue # continue until retries are exhausted
 
 
-    def get(self, **kwargs) -> requests.Response:
-        return self.make_request("GET", **kwargs)
+    def get(self, parsewith : callable = None, **kwargs) -> Iterable:
+        response = self.make_request("GET", **kwargs).json()
+
+        # parse the json response into desired format using callable
+        # the default response is typically a json from the data source
+        return parsewith(response) if parsewith else response
 
 
     def close(self) -> None:
