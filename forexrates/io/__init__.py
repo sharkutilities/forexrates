@@ -7,4 +7,4 @@ The response received from the external API sources are parsed and
 returned as per user requirements.
 """
 
-from forexrates.io.dataframe import exchangeratesio
+from forexrates.io import dataframe
