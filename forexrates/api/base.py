@@ -45,6 +45,27 @@ class BaseAPI(ABC):
         pass
 
 
+    def __format_error__(self, e : requests.exceptions.RequestException) -> str:
+        """
+        Format the Base Error Response Structure to Hide Sensitive Data
+
+        The make request exposes some sensitive information in the URL
+        string, which is not desired for security reasons. Referring
+        to an existing issue, the problem is not yet resolved and may
+        require an alternate approach.
+
+        Override the method in the child class to preserve the sensitive
+        information from leaking, or leave it to the parent class to
+        return the value as is.
+
+        :type  e: requests.exceptions.RequestException
+        :param e: Exception to be formatted, to hide sensitive
+            information from the URL string.
+        """
+
+        return e
+
+
     def make_request(self, method : str, **kwargs) -> requests.Response:
         sleep = kwargs.get("sleep", 2) # sleep b/w requests, in seconds
         retries = kwargs.get("retries", 3) # no. of retry attempts
@@ -64,12 +85,13 @@ class BaseAPI(ABC):
                 return response # data received, return response
 
             except requests.exceptions.RequestException as e:
+                e = self.__format_error__(e)
                 print(f"Request Failed (Attempt: {attempt + 1}) : {e}")
 
                 if attempt == retries - 1:
                     print("Max Retries Reached.")
                     raise e
-                
+
                 time.sleep(sleep)
                 continue # continue until retries are exhausted
 

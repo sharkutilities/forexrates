@@ -8,6 +8,8 @@ currency conversions. More information about the API is available at
 https://exchangeratesapi.io/documentation/.
 """
 
+import requests
+
 import datetime as dt
 from typing import Iterable
 from forexrates.api.base import BaseAPI
@@ -56,3 +58,8 @@ class ExchangeRatesAPI(BaseAPI):
 
     def get(self, parsewith : callable = None, **kwargs) -> Iterable:
         return super().get(parsewith = parsewith, **kwargs)
+
+
+    def __format_error__(self, e : requests.exceptions.RequestException) -> str:
+        server_message = e.response.json()["error"]["message"]
+        return f"{e.response} : {e.response.reason} - {server_message}"
