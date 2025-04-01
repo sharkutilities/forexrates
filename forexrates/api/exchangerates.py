@@ -56,8 +56,8 @@ class ExchangeRatesAPI(BaseAPI):
         pass
 
 
-    def get(self, parsewith : callable = None, **kwargs) -> Iterable:
-        return super().get(parsewith = parsewith, **kwargs)
+    def get(self, **kwargs) -> Iterable:
+        return super().get(**kwargs)
 
 
     def __format_error__(self, e : requests.exceptions.RequestException) -> str:

@@ -106,12 +106,17 @@ class BaseAPI(ABC):
                 continue # continue until retries are exhausted
 
 
-    def get(self, parsewith : callable = None, **kwargs) -> Iterable:
-        response = self.make_request("GET", **kwargs).json()
+    def get(self, **kwargs) -> Iterable:
+        """
+        Get the Base Response from an External API Source
 
-        # parse the json response into desired format using callable
-        # the default response is typically a json from the data source
-        return parsewith(response) if parsewith else response
+        The base response is fetched and the data is returned as
+        a JSON/Dictionary object to the enduser. The response can be
+        further processed and formatted into a desired structure using
+        the IO module.
+        """
+
+        return self.make_request("GET", **kwargs).json()
 
 
     def close(self) -> None:
