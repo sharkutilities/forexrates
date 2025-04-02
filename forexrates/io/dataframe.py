@@ -8,12 +8,14 @@ import datetime as dt
 
 import pandas as pd
 
-def exchangeratesio(data : dict, **kwargs) -> pd.DataFrame:
+def exchangeratesio(data : dict, mode : str = "multiple", **kwargs) -> pd.DataFrame:
     """
-    Parse a Single JSON Response from ExchangeRatesAPI
+    Parse a JSON (DICTIONARY) Response from ExchangeRatesAPI
 
     The single response is received as a JSON (dictionary equivalent)
     from the API and is parsed as a :mod:``pandas.DataFrame`` object.
+    The function provide method to parse a single/multiple responses
+    of the module and return a single :mod:``pandas.DataFrame`` object.
     A typical response structure is like:
 
     .. code-block:: json
@@ -28,12 +30,35 @@ def exchangeratesio(data : dict, **kwargs) -> pd.DataFrame:
             }
         }
 
+    In case of multiple response parsed under a single call, the
+    function is adjusted with parameter to handle such a response. A
+    sample response is like:
+
+    .. code-block:: json
+
+        [
+            {
+                "base" : "EUR",
+                "date" : "2020-01-01",
+                "rates" : {
+                    "USD" : 1.2345,
+                    "INR" : 1.2345,
+                    [...]
+                }
+            },
+            [...]
+        ]
+
     :type  data: dict
     :param data: A single JSON response from the ExchangeRatesAPI.
         More information about the reponse is available here:
         https://exchangeratesapi.io/documentation/.
 
-        
+    :type  mode: str
+    :param mode: Mode of operation (self explanatory). Either
+        ``multiple`` or ``single``. The default value is ``multiple``.
+
+
     Keyword Arguments
     -----------------
     Currently only setting the column and index names are supported
