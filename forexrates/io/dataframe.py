@@ -65,13 +65,17 @@ class ExchangeRatesIO(BaseIO):
         super().__init__(data)
 
 
-    def dataframe(self, **kwargs) -> pd.DataFrame:
+    def dataframe(self, verbose : bool = False, **kwargs) -> pd.DataFrame:
         """
         Parse a JSON (DICTIONARY) Response from ExchangeRatesAPI
 
         The function provide method to parse a single/multiple
         responses of the module and return a single
         :mod:``pandas.DataFrame`` object.
+
+        :type  verbose: bool
+        :param verbose: If set to ``True``, the function will print
+            additional information about the parsed dataframe.
 
         Keyword Arguments
         -----------------
@@ -116,4 +120,18 @@ class ExchangeRatesIO(BaseIO):
 
             frames.append(frame[[datecolumn, basecolumn, column, index]])
 
-        return pd.concat(frames, ignore_index = True)
+        frames = pd.concat(frames, ignore_index = True)
+
+        if verbose:
+            print(f"Total Parsed Records: {frames.shape[0]:,}")
+
+            min_ = frames[datecolumn].min().date()
+            max_ = frames[datecolumn].max().date()
+            print(f"  >> Date Range: {min_} - {max_}")
+
+            unique_bases_= frames[basecolumn].unique()
+            n_unique_targets_ = frames[column].nunique()
+            print(f"  >> Base Currency: {unique_bases_}")
+            print(f"  >> # UQ Targets: {n_unique_targets_:,}")
+
+        return frames
