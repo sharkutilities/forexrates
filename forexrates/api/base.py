@@ -9,9 +9,13 @@ data sources with abstract class methods and properties.
 
 import time
 import requests
+import warnings
 
 from typing import Iterable
 from abc import ABC, abstractmethod
+
+# GH#2 disable SSL warnings for self-signed certificates
+from urllib3.exceptions import InsecureRequestWarning
 
 class BaseAPI(ABC):
     def __init__(self, apikey : str) -> None:
@@ -70,6 +74,19 @@ class BaseAPI(ABC):
         sleep = kwargs.get("sleep", 2) # sleep b/w requests, in seconds
         retries = kwargs.get("retries", 3) # no. of retry attempts
 
+        # GH#2 give user the ability to disable SSL verification
+        # ? this is not recommended, but can be useful for testing
+        verify = kwargs.get("verify", True) # verify SSL certificate
+
+        if _ := kwargs.get("suppresswarning", False):
+            warnings.filterwarnings(
+                "ignore", category = InsecureRequestWarning
+            )
+            
+            requests.packages.urllib3.disable_warnings(
+                InsecureRequestWarning
+            )
+
         # create uri and append the endpoint to the url::
         uri = self.uri + self.endpoint
 
@@ -79,7 +96,9 @@ class BaseAPI(ABC):
         # retry on the uri with header and param loads
         for attempt in range(retries):
             try:
-                response = self._session.request(method, uri, **dataload)
+                response = self._session.request(
+                    method, uri, **dataload, verify = verify
+                )
                 response.raise_for_status()
 
                 return response # data received, return response
