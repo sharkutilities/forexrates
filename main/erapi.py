@@ -19,7 +19,8 @@ import sqlalchemy as sa
 sys.path.append("..")
 sys.path.append("dtutils")
 
-import forexrates # get the module from repository root
+from forexrates.api import ExchangeRatesAPI
+from forexrates.io.dataframe import ExchangeRatesIO
 
 # https://ds-gringotts.readthedocs.io/en/latest/modules/utils/dtutils.html
 import datetime_ as dt_ # cloned using git, ./dtutils
@@ -69,14 +70,14 @@ if __name__ == "__main__":
     logger.info(f"This will consume {len(dates):,} calls for the API")
 
     data = [
-        forexrates.api.ExchangeRatesAPI(
+        ExchangeRatesAPI(
             apikey = API_KEY, endpoint = date.strftime("%Y-%m-%d")
         ).get(
             verify = False, suppresswarning = True
         ) for date in dates
     ]
 
-    parser = forexrates.io.dataframe.ExchangeRatesIO(data)
+    parser = ExchangeRatesIO(data)
     dataframe = parser.dataframe(
         index = "exchange_rate", verbose = True
     )
