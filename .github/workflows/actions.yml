@@ -46,8 +46,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --local user.email "action@github.com"
 
-          git diff --quiet status.log || git add status.log
-          git diff-index --quiet HEAD || (git commit -am "📝 ERAPI Logs Updated" --allow-empty)
+          git add status.log
+          git commit -am "📝 ERAPI Logs Updated" --allow-empty
 
       - name: Push Changes to the Branch
         uses: ad-m/github-push-action@v1.0.0
