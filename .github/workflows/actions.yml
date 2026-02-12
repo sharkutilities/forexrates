@@ -25,9 +25,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install External/Personal Code Files
+        run: |
+          git clone https://gist.github.com/ZenithClown/d2dd294c5f528459e16b139c04c0b182.git dtutils
+
       - name: Execute ERAPI Python Script
         env:
-          DUMMY: ${{ secrets.DUMMY }}
+          AIVENIO_MACRODB_DATABASE: ${{ secrets.AIVENIO_MACRODB_DATABASE }}
+          AIVENIO_MACRODB_HOSTNAME: ${{ secrets.AIVENIO_MACRODB_HOSTNAME }}
+          AIVENIO_MACRODB_PASSWORD: ${{ secrets.AIVENIO_MACRODB_PASSWORD }}
+          AIVENIO_MACRODB_PORTNAME: ${{ secrets.AIVENIO_MACRODB_PORTNAME }}
+          AIVENIO_MACRODB_USERNAME: ${{ secrets.AIVENIO_MACRODB_USERNAME }}
+          EXCHANGERATES_IO_API_KEY: ${{ secrets.EXCHANGERATES_IO_API_KEY }}
         run: python main/erapi.py
 
       - name: Commit Logs to the New File
@@ -35,7 +44,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --local user.email "action@github.com"
 
-          git add .
+          git diff --quiet status.log || git add status.log
           git diff-index --quiet HEAD || (git commit -am "📝 ERAPI Logs Updated" --allow-empty)
 
       - name: Push Changes to the Branch
