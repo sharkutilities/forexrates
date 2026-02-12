@@ -26,7 +26,7 @@ jobs:
       - name: Execute ERAPI Python Script
         env:
           DUMMY: ${{ secrets.DUMMY }}
-        run: python ./main/erapi.py
+        run: python main/erapi.py
 
       - name: commit files
         run: |
