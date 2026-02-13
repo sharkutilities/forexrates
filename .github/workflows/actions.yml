@@ -9,7 +9,7 @@ jobs:
   build:
     name: Update FOREX Data
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     permissions:
       contents: write
@@ -44,21 +44,12 @@ jobs:
           AIVENIO_MACRODB_PORTNAME: ${{ secrets.AIVENIO_MACRODB_PORTNAME }}
           AIVENIO_MACRODB_USERNAME: ${{ secrets.AIVENIO_MACRODB_USERNAME }}
           EXCHANGERATES_IO_API_KEY: ${{ secrets.EXCHANGERATES_IO_API_KEY }}
-        run: |
-          python main/erapi.py || {
-            echo "❌ ERAPI script failed"
-            exit 1
-          }
+        run: python main/erapi.py
 
       - name: Commit and Push Logs
         run: |
           git config --local user.name "GitHub Actions Bot"
           git config --local user.email "actions@github.com"
-          
-          if [ -f status.log ]; then
-            git add status.log
-            git commit -m "📝 ERAPI Logs Updated [$(date '+%Y-%m-%d %H:%M:%S')]" || echo "No changes to commit"
-            git push || echo "Nothing to push"
-          else
-            echo "⚠️ Warning: status.log not found"
-          fi
+
+          git add status.log
+          git commit -m "📝 ERAPI Logs Updated" --allow-empty
