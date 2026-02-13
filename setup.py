@@ -9,6 +9,7 @@ setup(
     license="MIT",
     packages=find_packages(),
     install_requires=[
+        "tqdm==4.64.1",
         "numpy==1.24.4",
         "pandas==1.5.3",
         "requests==2.32.3",
