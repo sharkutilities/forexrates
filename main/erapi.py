@@ -15,6 +15,8 @@ import pandas as pd
 import datetime as dt
 import sqlalchemy as sa
 
+from tqdm import tqdm as TQ
+
 # append additional files, check actions for more information
 sys.path.append("..")
 sys.path.append("dtutils")
@@ -74,7 +76,7 @@ if __name__ == "__main__":
             apikey = API_KEY, endpoint = date.strftime("%Y-%m-%d")
         ).get(
             verify = False, suppresswarning = True
-        ) for date in dates
+        ) for date in TQ(dates, desc = "Fetching FOREX Rates")
     ]
 
     parser = ExchangeRatesIO(data)
