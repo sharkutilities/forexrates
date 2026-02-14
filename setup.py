@@ -18,7 +18,12 @@ setup(
     url = "https://github.com/sharkutilities/forexrates",
     packages = find_packages(),
     install_requires = [
-        requirement for requirement in open("requirements.txt", "r").read().split("\n") if requirement
+        "tqdm==4.64.1",
+        "numpy==1.24.4",
+        "pandas==1.5.3",
+        "requests==2.32.3",
+        "psycopg2==2.9.10".
+        "SQLAlchemy==1.4.54"
     ],
     classifiers = [
         "Development Status :: 1 - Planning",
