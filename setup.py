@@ -19,7 +19,7 @@ setup(
     packages = find_packages(),
     install_requires = [
         requirement for requirement in open("requirements.txt", "r").read().split("\n") if requirement
-    ]
+    ],
     classifiers = [
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
