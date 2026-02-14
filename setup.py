@@ -12,18 +12,22 @@ setup(
     version = forexrates.__version__,
     author = "shark-utilities developers",
     author_email = "neuralNOD@outlook.com",
-    description = "A unified codebase for fetching Foreign Exchange Rates from different API sources.",
-    # long_description = open("README.md", "r").read(),
-    # long_description_content_type = "text/markdown",
+    description = "A unified codebase for fetching FOREX Rates.",
+    long_description = open("README.md", "r").read(),
+    long_description_content_type = "text/markdown",
     url = "https://github.com/sharkutilities/forexrates",
-    packages = find_packages(),
+    packages = find_packages(
+        exclude = [
+            "tests", "tests.*", "examples", "examples.*"
+        ]
+    ),
     install_requires = [
-        "tqdm==4.64.1",
-        "numpy==1.24.4",
-        "pandas==1.5.3",
-        "requests==2.32.3",
-        "psycopg2==2.9.10",
-        "SQLAlchemy==1.4.54",
+        "tqdm>=4.64.1",
+        "numpy>=1.24.0",
+        "pandas>=1.5.0",
+        "requests>=2.31.0",
+        "psycopg2-binary>=2.9.0",
+        "SQLAlchemy>=1.4.0,<2.0.0",
     ],
     classifiers = [
         "Development Status :: 1 - Planning",
