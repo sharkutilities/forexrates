@@ -1,4 +1,4 @@
-name: Update FOREX Data in MacroDB Schema
+name: Schedule Data Update
 
 on:
   workflow_dispatch:
