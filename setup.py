@@ -68,5 +68,5 @@ setup(
         # keywords for finding the package relevant to usecases::
         "wrappers", "data science", "data analysis", "data scientist", "data analyst"
     ],
-    python_requires = ">=3.10"
+    python_requires = ">=3.11"
 )
