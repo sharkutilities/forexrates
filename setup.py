@@ -35,7 +35,7 @@ setup(
         "python-dateutil==2.9.0.post0",
         "requests==2.32.5",
         "six==1.17.0",
-        "SQLAlchemy==2.0.46",
+        "SQLAlchemy==1.4.54",
         "tqdm==4.67.3",
         "typing_extensions==4.15.0",
         "tzdata==2025.3",
