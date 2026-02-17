@@ -1,2 +1,6 @@
 2026-02-17 06:38:26,727 - ERAPI - INFO - Connection established to defaultdb
 [2026-02-17 06:38:26] Failed to Execute, check DEBUG Logs.
+2026-02-17 06:52:50,429 - ERAPI - INFO - Connection established to defaultdb
+2026-02-17 06:52:51,179 - ERAPI - INFO - Trying to fetch data from 2026-02-13 to 2026-02-16
+2026-02-17 06:52:51,179 - ERAPI - INFO - This will consume 4 calls for the API
+[2026-02-17 06:52:57] Failed to Execute, check DEBUG Logs.
