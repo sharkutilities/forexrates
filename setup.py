@@ -33,6 +33,7 @@ setup(
         "pandas==3.0.0",
         "psycopg2==2.9.11",
         "python-dateutil==2.9.0.post0",
+        "requests==2.32.5",
         "six==1.17.0",
         "SQLAlchemy==2.0.46",
         "tqdm==4.67.3",
