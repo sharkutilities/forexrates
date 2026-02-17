@@ -10,7 +10,7 @@ authors = [
 ]
 description = "A unified codebase for fetching FOREX rates."
 # readme = "README.md"  # Uncomment if you have a README.md
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT License" }
 keywords = [
     "forex", "api", "exchange rates", "foreign exchange rates",
@@ -29,7 +29,6 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
