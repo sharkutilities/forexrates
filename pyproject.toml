@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools==82.0.0", "wheel==0.46.3", "packaging==26.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forexrates"
+dynamic = ["version"]
+authors = [
+  { name = "shark-utilities developers", email = "neuralNOD@outlook.com" }
+]
+description = "A unified codebase for fetching FOREX rates."
+# readme = "README.md"  # Uncomment if you have a README.md
+requires-python = ">=3.9"
+license = { text = "MIT License" }
+keywords = [
+    "forex", "api", "exchange rates", "foreign exchange rates",
+    "wrappers", "data science", "data analysis", "data scientist", "data analyst"
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Operating System :: Unix",
+    "Operating System :: POSIX",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "greenlet==3.3.1",
+    "numpy==2.4.2",
+    "pandas==3.0.0",
+    "psycopg2==2.9.11",
+    "python-dateutil==2.9.0.post0",
+    "six==1.17.0",
+    "SQLAlchemy==2.0.46",
+    "tqdm==4.67.3",
+    "typing_extensions==4.15.0",
+    "tzdata==2025.3",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sharkutilities/forexrates"
+"Issue Tracker" = "https://github.com/sharkutilities/forexrates/issues"
+"Org. Homepage" = "https://github.com/sharkutilities"
+
+[tool.setuptools]
+py-modules = []
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "examples*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "forexrates.__version__"}

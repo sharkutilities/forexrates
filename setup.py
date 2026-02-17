@@ -3,8 +3,15 @@
 # Copywright (C) 2024 Debmalya Pramanik <neuralNOD@gmail.com>
 # LICENSE: MIT License
 
+import os
+import sys
+
 from setuptools import setup
 from setuptools import find_packages
+
+sys.path.append(
+    os.path.join(os.path.dirname(__file__))
+)
 
 import forexrates
 
@@ -21,10 +28,16 @@ setup(
         exclude = ["tests*", "examples*"]
     ),
     install_requires = [
-        "numpy==1.24.4",
-        "pandas==1.5.3",
-        "psycopg2==2.9.10",
-        "SQLAlchemy==1.4.54",
+        "greenlet==3.3.1",
+        "numpy==2.4.2",
+        "pandas==3.0.0",
+        "psycopg2==2.9.11",
+        "python-dateutil==2.9.0.post0",
+        "six==1.17.0",
+        "SQLAlchemy==2.0.46",
+        "tqdm==4.67.3",
+        "typing_extensions==4.15.0",
+        "tzdata==2025.3",
     ],
     classifiers = [
         "Development Status :: 1 - Planning",
