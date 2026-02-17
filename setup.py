@@ -28,18 +28,13 @@ setup(
         exclude = ["tests*", "examples*"]
     ),
     install_requires = [
-        "greenlet==3.3.1",
         "numpy==2.4.2",
         "pandas==3.0.0",
         "psycopg==3.3.2",
-        "psycopg[binary]==3.3.2",
-        "python-dateutil==2.9.0.post0",
+        "psycopg-binary==3.3.2",
         "requests==2.32.5",
-        "six==1.17.0",
         "SQLAlchemy==2.0.0",
         "tqdm==4.67.3",
-        "typing_extensions==4.15.0",
-        "tzdata==2025.3",
     ],
     classifiers = [
         "Development Status :: 1 - Planning",

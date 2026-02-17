@@ -1,19 +1,13 @@
 [build-system]
 requires = [
-    "greenlet==3.3.1",
     "numpy==2.4.2",
-    "packaging==26.0",
     "pandas==3.0.0",
     "psycopg==3.3.2",
-    "psycopg[binary]==3.3.2",
-    "python-dateutil==2.9.0.post0",
+    "psycopg-binary==3.3.2",
     "requests==2.32.5",
     "setuptools==82.0.0",
-    "six==1.17.0",
     "SQLAlchemy==2.0.0",
     "tqdm==4.67.3",
-    "typing_extensions==4.15.0",
-    "tzdata==2025.3",
     "wheel==0.46.3",
 ]
 build-backend = "setuptools.build_meta"
@@ -26,7 +20,7 @@ authors = [
 ]
 description = "A unified codebase for fetching FOREX rates."
 # readme = "README.md"  # Uncomment if you have a README.md
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "MIT License" }
 keywords = [
     "forex", "api", "exchange rates", "foreign exchange rates",
@@ -50,18 +44,13 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
-    "greenlet==3.3.1",
     "numpy==2.4.2",
     "pandas==3.0.0",
     "psycopg==3.3.2",
-    "psycopg[binary]==3.3.2",
-    "python-dateutil==2.9.0.post0",
+    "psycopg-binary==3.3.2",
     "requests==2.32.5",
-    "six==1.17.0",
     "SQLAlchemy==2.0.0",
     "tqdm==4.67.3",
-    "typing_extensions==4.15.0",
-    "tzdata==2025.3",
 ]
 
 [project.urls]
