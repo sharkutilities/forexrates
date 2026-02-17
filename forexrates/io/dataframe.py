@@ -6,7 +6,6 @@ Operations to Parse Data as :mod:``pandas.DataFrame`` Object
 
 import datetime as dt
 
-from tqdm import tqdm as TQ
 from typing import Iterable
 
 import pandas as pd
@@ -103,7 +102,7 @@ class ExchangeRatesIO(BaseIO):
         datecolumn = kwargs.get("datecolumn", "effective_date")
 
         frames = []
-        for data in TQ(self.data, desc = "Parsing Records..."):
+        for data in self.data:
             base = data["base"]
             date = data["date"]
 
