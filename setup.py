@@ -21,8 +21,8 @@ setup(
     author = "shark-utilities developers",
     author_email = "neuralNOD@outlook.com",
     description = "A unified codebase for fetching FOREX rates.",
-    # long_description = open("README.md", "r").read(),
-    # long_description_content_type = "text/markdown",
+    long_description = open("README.md", "r").read(),
+    long_description_content_type = "text/markdown",
     url = "https://github.com/sharkutilities/forexrates",
     packages = find_packages(
         exclude = ["tests*", "examples*"]
@@ -37,10 +37,11 @@ setup(
         "tqdm==4.67.3",
     ],
     classifiers = [
-        "Development Status :: 1 - Planning",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Intended Audience :: Education",
         "Intended Audience :: End Users/Desktop",
+        "Intended Audience :: Financial and Insurance Industry",
         "Intended Audience :: Information Technology",
         "Intended Audience :: Science/Research",
         "Operating System :: Unix",
@@ -49,10 +50,11 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
-        "License :: OSI Approved :: MIT License"
+        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
+        "License :: OSI Approved :: MIT License",
     ],
     project_urls = {
         "Issue Tracker" : "https://github.com/sharkutilities/forexrates/issues",

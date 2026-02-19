@@ -19,18 +19,19 @@ authors = [
   { name = "shark-utilities developers", email = "neuralNOD@outlook.com" }
 ]
 description = "A unified codebase for fetching FOREX rates."
-# readme = "README.md"  # Uncomment if you have a README.md
+readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.11"
-license = { text = "MIT License" }
+license = {file = "LICENSE" }
 keywords = [
     "forex", "api", "exchange rates", "foreign exchange rates",
     "wrappers", "data science", "data analysis", "data scientist", "data analyst"
 ]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
     "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Financial and Insurance Industry",
     "Intended Audience :: Information Technology",
     "Intended Audience :: Science/Research",
     "Operating System :: Unix",
@@ -41,6 +42,8 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
