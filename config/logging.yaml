@@ -20,7 +20,7 @@ handlers:
     formatter: verbose
     backupCount: 1
     maxBytes: 1048576
-    filename: ./logs/status.log
+    filename: ./status.log
 
 loggers:
   root:
