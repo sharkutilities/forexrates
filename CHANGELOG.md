@@ -50,7 +50,7 @@ under `h3` tags, while the `micro` and "version identifiers" are listed under `h
 
 </details>
 
-### Bronze Knuts `v1` Release
+### Bronze Knuts `v1.0.0` Release
 
 We are pleased to announce the release of **`forexrates v1.0.0`** (code named *Bronze Knuts*, smallest currency in the
 wizarding world of Harry Potter). This is the first stable release bringing the following new features to the community.
@@ -59,8 +59,7 @@ Foreign exchange rates is a fundamental factor in determining various macroecono
 are plenty of API (both paid, freeware) available. The module provides a uniform structure to fetch the data from various
 sources making it easy to switch between different vendors with ease without needing to change underlying functions.
 
-  * 🎉 Provide a *unified* structure with inheritence and abstraction to logically bucketize and fetch data from available
-    exchange rates API data sources.
+  * 🎉 Provide a *unified* structure with inheritence and abstraction to logically bucketize and fetch data from an API.
   * 🎉 An IO submodule which deals with converting data from one data type to another, this is useful so that the module can
     be directly consumed within your system with ease providing flexibility and robust control.
 
