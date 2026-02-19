@@ -32,8 +32,9 @@ setup(
         "pandas==3.0.0",
         "psycopg==3.3.2",
         "psycopg-binary==3.3.2",
+        "PyYAML==6.0.3",
         "requests==2.32.5",
-        "SQLAlchemy==2.0.0",
+        "SQLAlchemy==2.0.46",
         "tqdm==4.67.3",
     ],
     classifiers = [
