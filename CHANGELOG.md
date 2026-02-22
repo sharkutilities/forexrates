@@ -50,6 +50,14 @@ under `h3` tags, while the `micro` and "version identifiers" are listed under `h
 
 </details>
 
+### Bronze Knuts `v1.1.0` Release
+
+We are pleased to announce the release of **`forexrates v1.0.0`** (code named *Bronze Knuts*) that reduces the dependency
+overheads for the module. The following changes were made to the project:
+
+  * 💣 Data update in `MacroDB` is now removed and unified database control is done under
+    [Project Archon](https://github.com/aivenio/project.archon) that reduces dependency overheads.
+
 ### Bronze Knuts `v1.0.0` Release
 
 We are pleased to announce the release of **`forexrates v1.0.0`** (code named *Bronze Knuts*, smallest currency in the

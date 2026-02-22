@@ -1,6 +1,6 @@
 <div align = "center">
 
-# FOREXRates (`forexrates`) ETL Module
+# FOREXRates ETL Module
 
 [![GitHub Issues](https://img.shields.io/github/issues/sharkutilities/forexrates?style=plastic)](https://github.com/sharkutilities/forexrates/issues)
 [![GitHub Forks](https://img.shields.io/github/forks/sharkutilities/forexrates?style=plastic)](https://github.com/sharkutilities/forexrates/network)
